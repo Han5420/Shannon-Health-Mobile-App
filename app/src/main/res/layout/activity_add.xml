@@ -5,19 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".AddActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/addImageView"
-        android:scaleType="fitXY" />
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/addEditView"
-        android:hint="내용을 입력해 주세요"
-        android:gravity="left|top" />
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="#05796B"
+            android:id="@+id/chatbotAns"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="25dp"
+            android:text="Hello, this is Shannon ChatBot service.
+            \nPlease send the number you want to access.
+            \n\n1: Checking nearby Doctors\n2: The newest health news\n3: Shannon visiting hours\n4: Finding nearest locations" />
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@color/browser_actions_bg_grey"
+            android:textSize="20dp"
+            android:id="@+id/showUserAnswer"
+            android:text="This is chatbot"
+            android:visibility="gone"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/userAnswer"/>
+        <Button
+            android:id="@+id/sendBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="send"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
 
 </LinearLayout>
