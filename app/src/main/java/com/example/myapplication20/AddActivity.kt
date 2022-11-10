@@ -28,26 +28,30 @@ class AddActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.sendBtn.setOnClickListener {
-            if (binding.userAnswer.text.isNotEmpty()){
-                if (binding.userAnswer.text.equals("1")) {
-                    binding.showUserAnswer.text = "1"
-                    binding.showUserAnswer.visibility = View.VISIBLE
-                }
-                else if (binding.userAnswer.text.equals("2")) {
-                    binding.showUserAnswer.text = "2"
-                    binding.showUserAnswer.visibility = View.VISIBLE
-                }
-                else if (binding.userAnswer.text.equals("3")) {
-                    binding.showUserAnswer.text = "3"
-                    binding.showUserAnswer.visibility = View.VISIBLE
-                }
-                else if (binding.userAnswer.text.equals("4")) {
-                    binding.showUserAnswer.text = "4"
-                    binding.showUserAnswer.visibility = View.VISIBLE
-                }
-                else {
-
-                }
+            Log.d("mobileApp", "click Btn")
+            Log.d("mobileApp", "${binding.answerEditTv.text}")
+            if (binding.answerEditTv.text.toString() == "1") {
+                binding.showUserAnswer.visibility = View.VISIBLE
+                binding.showInfo.visibility = View.VISIBLE
+                binding.showUserAnswer.text = "1"
+                binding.showInfo.text = "Here's the link for checking nearby Doctors: https://www.shannonhealth.com/provider-directory/"
+                Log.d("mobileApp", "click Btn 1")
+            } else if (binding.answerEditTv.text.toString() == "2") {
+                binding.showUserAnswer.visibility = View.VISIBLE
+                binding.showInfo.visibility = View.VISIBLE
+                binding.showUserAnswer.text = "2"
+                binding.showInfo.text = "Here's our newest health news: https://www.shannonhealth.com/health-library/"
+            } else if (binding.answerEditTv.text.toString() == "3") {
+                binding.showUserAnswer.visibility = View.VISIBLE
+                binding.showInfo.visibility = View.VISIBLE
+                binding.showUserAnswer.text = "3"
+                binding.showInfo.text = "Here's our visiting hours: https://www.shannonhealth.com/patients-and-visitors/visiting-hours/"
+            } else if (binding.answerEditTv.text.toString() == "4") {
+                binding.showUserAnswer.visibility = View.VISIBLE
+                binding.showInfo.visibility = View.VISIBLE
+                binding.showUserAnswer.text = "4"
+                binding.showInfo.text = "Here you can find nearest locations: https://www.shannonhealth.com/locations/"
+            } else {
             }
         }
     }
