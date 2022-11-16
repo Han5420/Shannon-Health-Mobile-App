@@ -35,17 +35,17 @@ class AuthActivity : AppCompatActivity() {
                         MyApplication.auth.currentUser?.sendEmailVerification()
                             ?.addOnCompleteListener { sendTask ->
                                 if (sendTask.isSuccessful) {
-                                    Toast.makeText(baseContext, "회원가입 성공!!.. 메일을 확인해 주세요", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(baseContext, "successful! pleas check your mail", Toast.LENGTH_SHORT).show()
                                     changeVisibility("logout")
                                 }
                                 else {
-                                    Toast.makeText(baseContext, "메일발송 실패", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(baseContext, "failed to send mail", Toast.LENGTH_SHORT).show()
                                     changeVisibility("logout")
                                 }
                             }
                     }
                     else {
-                        Toast.makeText(baseContext, "회원가입 실패", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, "failed to create account", Toast.LENGTH_SHORT).show()
                         changeVisibility("logout")
                     }
                 }
@@ -64,11 +64,11 @@ class AuthActivity : AppCompatActivity() {
                             finish()
                         }
                         else {
-                            Toast.makeText(baseContext, "이메일 인증이 되지 않았습니다.", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(baseContext, "Email authentication is not successful", Toast.LENGTH_SHORT).show()
                         }
                     }
                     else {
-                        Toast.makeText(baseContext, "로그인 실패", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, "failed to login", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
@@ -79,10 +79,10 @@ class AuthActivity : AppCompatActivity() {
 
             UserApiClient.instance.logout { error ->
                 if (error != null) {
-                    // Toast.makeText(baseContext, "로그아웃 실패", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(baseContext, "logout failed", Toast.LENGTH_SHORT).show()
                 }
                 else {
-                    Toast.makeText(baseContext, "로그아웃 성공", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "logout successful", Toast.LENGTH_SHORT).show()
                 }
             }
             finish()
