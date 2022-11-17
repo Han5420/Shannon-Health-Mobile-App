@@ -48,14 +48,14 @@ class MainActivity : AppCompatActivity() {
             binding.btnLogin.text = "Logout"
             // binding.authTv.text = "Hello, ${MyApplication.email}"
             binding.authTv.textSize = 16F
-            binding.mainRecyclerView.visibility = View.GONE
+            // .mainRecyclerView.visibility = View.GONE
             makeRecyclerView()
         }
         else {
             binding.btnLogin.text = "Login"
             binding.authTv.text = "Shannon"
             binding.authTv.textSize = 24F
-            binding.mainRecyclerView.visibility = View.GONE
+            // binding.mainRecyclerView.visibility = View.GONE
         }
     }
 
@@ -69,8 +69,8 @@ class MainActivity : AppCompatActivity() {
                     item.docId = document.id
                     itemList.add(item)
                 }
-                binding.mainRecyclerView.layoutManager = LinearLayoutManager(this)
-                binding.mainRecyclerView.adapter = MyAdapter(this, itemList)
+                // binding.mainRecyclerView.layoutManager = LinearLayoutManager(this)
+                // binding.mainRecyclerView.adapter = MyAdapter(this, itemList)
             }
             .addOnFailureListener {
                 Toast.makeText(this, "서버 데이터 획득 실패", Toast.LENGTH_SHORT).show()
