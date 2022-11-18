@@ -1,22 +1,19 @@
 package com.example.myapplication20
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
 import com.example.ch20_firebase.util.myCheckPermission
 import com.example.myapplication20.databinding.ActivityMainBinding
-import com.kakao.sdk.common.util.Utility
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -40,6 +37,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("data", "login")
             startActivity(intent)
         }
+
+           binding.myChart.setOnClickListener{
+               val i = Intent(Intent.ACTION_VIEW)
+               val url = "https://mychart.shannonhealth.org/mychart/Authentication/Login?"
+               i.setData(Uri.parse(url));
+               startActivity(i);
+           }
     }
 
     override fun onStart() {
