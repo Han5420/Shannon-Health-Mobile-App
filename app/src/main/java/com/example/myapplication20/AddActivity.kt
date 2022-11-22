@@ -2,21 +2,11 @@ package com.example.myapplication20
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.example.ch20_firebase.util.dateToString
+import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication20.databinding.ActivityAddBinding
-import java.io.File
-import java.util.*
 
 class AddActivity : AppCompatActivity() {
     lateinit var binding: ActivityAddBinding
@@ -34,23 +24,36 @@ class AddActivity : AppCompatActivity() {
                 binding.showUserAnswer.visibility = View.VISIBLE
                 binding.showInfo.visibility = View.VISIBLE
                 binding.showUserAnswer.text = "1"
-                binding.showInfo.text = "Here's the link for checking nearby Doctors: https://www.shannonhealth.com/provider-directory/"
+                binding.showInfo.text = "Here's the link for checking nearby Doctors: "
+                val uri = Uri.parse("https://www.shannonhealth.com/provider-directory/")
+                val it = Intent(Intent.ACTION_VIEW, uri)
+                startActivity(it)
                 Log.d("mobileApp", "click Btn 1")
             } else if (binding.answerEditTv.text.toString() == "2") {
                 binding.showUserAnswer.visibility = View.VISIBLE
                 binding.showInfo.visibility = View.VISIBLE
                 binding.showUserAnswer.text = "2"
-                binding.showInfo.text = "Here's our newest health news: https://www.shannonhealth.com/health-library/"
+                binding.showInfo.text = "Here's our newest health news: "
+                val uri = Uri.parse("https://www.shannonhealth.com/health-library/")
+                val it = Intent(Intent.ACTION_VIEW, uri)
+                startActivity(it)
             } else if (binding.answerEditTv.text.toString() == "3") {
                 binding.showUserAnswer.visibility = View.VISIBLE
                 binding.showInfo.visibility = View.VISIBLE
                 binding.showUserAnswer.text = "3"
-                binding.showInfo.text = "Here's our visiting hours: https://www.shannonhealth.com/patients-and-visitors/visiting-hours/"
-            } else if (binding.answerEditTv.text.toString() == "4") {
+                binding.showInfo.text = "Here's our visiting hours: "
+                val uri = Uri.parse("https://www.shannonhealth.com/patients-and-visitors/visiting-hours/")
+                val it = Intent(Intent.ACTION_VIEW, uri)
+                startActivity(it)
+            }
+            else if (binding.answerEditTv.text.toString() == "4") {
                 binding.showUserAnswer.visibility = View.VISIBLE
                 binding.showInfo.visibility = View.VISIBLE
                 binding.showUserAnswer.text = "4"
-                binding.showInfo.text = "Here you can find nearest locations: https://www.shannonhealth.com/locations/"
+                binding.showInfo.text = "Here you can find nearest locations: "
+                val uri = Uri.parse("https://www.shannonhealth.com/locations/")
+                val it = Intent(Intent.ACTION_VIEW, uri)
+                startActivity(it)
             } else {
             }
         }
