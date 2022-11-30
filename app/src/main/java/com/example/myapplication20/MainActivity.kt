@@ -65,6 +65,17 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        binding.viewPrescription.setOnClickListener{
+            if (MyApplication.checkAuth()) {
+                val wb = WebView(this)
+                wb.loadUrl("file:///android_asset/prescription.html")
+                setContentView(wb)
+            }
+            else {
+                Toast.makeText(this, "Please Login First", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         binding.dailySurvey.setOnClickListener{
             if (MyApplication.checkAuth()) {
                 val wb = WebView(this)
@@ -75,7 +86,9 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please Login First", Toast.LENGTH_SHORT).show()
             }
         }
-        binding.dailySurvey.isEnabled=false
+        binding.dailySurvey.setVisibility(View.INVISIBLE)
+
+
     }
 
     override fun onStart() {
@@ -86,7 +99,7 @@ class MainActivity : AppCompatActivity() {
             // binding.authTv.text = "Hello, ${MyApplication.email}"
             binding.authTv.textSize = 16F
             // .mainRecyclerView.visibility = View.GONE
-            binding.dailySurvey.isEnabled=true
+            binding.dailySurvey.setVisibility(View.VISIBLE)
             makeRecyclerView()
         }
         else {
