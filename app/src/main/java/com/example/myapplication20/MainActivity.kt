@@ -50,8 +50,19 @@ class MainActivity : AppCompatActivity() {
             else {
                 Toast.makeText(this, "Please Login First", Toast.LENGTH_SHORT).show()
             }
+        }
 
-           }
+        binding.urgentCare.setOnClickListener{
+            if (MyApplication.checkAuth()) {
+                val i = Intent(Intent.ACTION_VIEW)
+                val url = "https://www.shannonhealth.com/services/urgent-care/"
+                i.setData(Uri.parse(url));
+                startActivity(i)
+            }
+            else {
+                Toast.makeText(this, "Please Login First", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         binding.viewPayBill.setOnClickListener{
             if (MyApplication.checkAuth()) {
